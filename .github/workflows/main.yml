@@ -51,6 +51,11 @@ jobs:
       PYTEST_ADDOPTS: "-v --color=yes"
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Check out the repository
         uses: actions/checkout@v2
         with:
@@ -85,6 +90,11 @@ jobs:
       PYTEST_ADDOPTS: "-v --color=yes --csv unit_results.csv"
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Check out the repository
         uses: actions/checkout@v2
         with:
@@ -121,6 +131,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Check out the repository
         uses: actions/checkout@v2
         with:
@@ -167,6 +182,11 @@ jobs:
         python-version: [3.7, 3.8, 3.9]
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
