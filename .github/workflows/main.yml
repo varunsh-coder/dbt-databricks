@@ -52,9 +52,13 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v1
+        uses: step-security/harden-runner@bdb12b622a910dfdc99a31fdfe6f45a16bc287a4 # v1
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
 
       - name: Check out the repository
         uses: actions/checkout@v2
@@ -76,7 +80,7 @@ jobs:
         run: tox
 
   unit:
-    name: unit test python ${{ matrix.python-version }}
+    name: unit test / python ${{ matrix.python-version }}
 
     runs-on: ubuntu-latest
 
@@ -91,9 +95,13 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v1
+        uses: step-security/harden-runner@bdb12b622a910dfdc99a31fdfe6f45a16bc287a4 # v1
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
 
       - name: Check out the repository
         uses: actions/checkout@v2
@@ -132,9 +140,13 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v1
+        uses: step-security/harden-runner@bdb12b622a910dfdc99a31fdfe6f45a16bc287a4 # v1
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
 
       - name: Check out the repository
         uses: actions/checkout@v2
@@ -169,7 +181,7 @@ jobs:
           path: dist/
 
   test-build:
-    name: verify packages python ${{ matrix.python-version }} ${{ matrix.os }}
+    name: verify packages / python ${{ matrix.python-version }} / ${{ matrix.os }}
 
     needs: build
 
@@ -183,9 +195,13 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v1
+        uses: step-security/harden-runner@bdb12b622a910dfdc99a31fdfe6f45a16bc287a4 # v1
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
