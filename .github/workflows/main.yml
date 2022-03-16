@@ -76,7 +76,7 @@ jobs:
         run: tox
 
   unit:
-    name: unit test / python ${{ matrix.python-version }}
+    name: unit test python ${{ matrix.python-version }}
 
     runs-on: ubuntu-latest
 
@@ -169,7 +169,7 @@ jobs:
           path: dist/
 
   test-build:
-    name: verify packages / python ${{ matrix.python-version }} / ${{ matrix.os }}
+    name: verify packages python ${{ matrix.python-version }} ${{ matrix.os }}
 
     needs: build
 
